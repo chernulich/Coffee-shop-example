@@ -1,4 +1,6 @@
 import { Component, OnInit } from '@angular/core';
+import {PersonHttpService} from '../service/http/person-http.service';
+import {Person} from '../model/person';
 
 @Component({
   selector: 'app-person',
@@ -7,9 +9,12 @@ import { Component, OnInit } from '@angular/core';
 })
 export class PersonComponent implements OnInit {
 
-  constructor() { }
+  constructor(private personHttpService: PersonHttpService) { }
+
+  public persons: Person[] = [];
 
   ngOnInit() {
+    return this.personHttpService.getPersons().subscribe(data => this.persons = data);
   }
 
 }
