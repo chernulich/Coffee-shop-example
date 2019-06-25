@@ -9,9 +9,8 @@
              class="form-control"
              (keydown.enter)="saveExample(exampleName)"
              (mouseover)="isHeaderShadow=true"
-             (mouseleave)="isHeaderShadow=false"
+             (mouseleave)="isHeaderShadow=false">
 
-      >
       <div class="input-group-append">
         <span class="input-group-text" style="cursor: pointer" (click)="saveExample(exampleName)">Add example</span>
       </div>
@@ -28,12 +27,14 @@
       </thead>
       <tbody>
       <tr *ngFor="let example of examples; let index = index"
-      (mouseover)="tableRowsShadows[index] = true"
-      (mouseleave)="tableRowsShadows[index] = false"
-      [class.shadow-lg]="tableRowsShadows[index]"
-      [class.alert-info]="tableRowsShadows[index]"
+          (mouseover)="tableRowsShadows[index] = true"
+          (mouseleave)="tableRowsShadows[index] = false"
+          [class.shadow-lg]="tableRowsShadows[index]"
+          [class.alert-info]="tableRowsShadows[index]"
       >
-        <td>{{example.id}}</td>
+        <td>
+          <li><a routerLink="/unit" (click)="sendId(example.id)">{{example.id}}</a> </li>
+        </td>
         <td>{{example.name}}</td>
       </tr>
       </tbody>

@@ -25,6 +25,8 @@ let routes = {
 
 app.use(express.json());
 app.use(express.urlencoded({extended: false}));
+
+
 app.get('/api/examples', routes.api.example.getExampleList);
 app.get('/api/examples/:id', routes.api.example.getExampleById);
 app.post('/api/examples', routes.api.example.saveExample);

@@ -1,6 +1,6 @@
 import {Injectable} from '@angular/core';
-import {HttpClient} from "@angular/common/http";
-import {Example} from "../../model/example";
+import {HttpClient} from '@angular/common/http';
+import {Example} from '../../model/example';
 
 @Injectable({
   providedIn: 'root'
@@ -11,14 +11,14 @@ export class ExampleHttpService {
   }
 
   getExamples() {
-    return this.httpClient.get<Example[]>("api/examples");
+    return this.httpClient.get<Example[]>('api/examples');
   }
 
   getExamplesById(id: number) {
-    return this.httpClient.get<Example[]>("api/examples/" + id);
+    return this.httpClient.get<Example>('api/examples/' + id);
   }
 
   saveExample(name: string) {
-    return this.httpClient.post<Example>('/api/examples', {name: name});
+    return this.httpClient.post<Example>('/api/examples', {name});
   }
 }

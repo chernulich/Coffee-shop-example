@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
-import {ExampleHttpService} from "../service/http/example-http.service";
-import {Example} from "../model/example";
+import {ExampleHttpService} from '../service/http/example-http.service';
+import {Example} from '../model/example';
 
 @Component({
   selector: 'app-example',
@@ -9,11 +9,12 @@ import {Example} from "../model/example";
 })
 export class ExampleComponent implements OnInit {
 
-  public isHeaderShadow: boolean = false;
+  public isHeaderShadow = false;
   public tableRowsShadows: boolean [] = [];
 
   public examples: Example[] = [];
   public exampleName: string;
+  public unitId: number;
 
   constructor(private exampleHttpService: ExampleHttpService) {
   }
@@ -29,7 +30,11 @@ export class ExampleComponent implements OnInit {
   }
 
   ngOnInit() {
-    this.getExamples();
+    const x = this.getExamples();
+    alert(x);
   }
 
+  sendId(id: number) {
+    this.unitId = id;
+  }
 }
