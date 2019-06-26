@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import {ExampleHttpService} from '../service/http/example-http.service';
 import {Example} from '../model/example';
+import {CommonService} from '../service/common/common.service';
 
 @Component({
   selector: 'app-example',
@@ -16,7 +17,8 @@ export class ExampleComponent implements OnInit {
   public exampleName: string;
   public unitId: number;
 
-  constructor(private exampleHttpService: ExampleHttpService) {
+  constructor(private exampleHttpService: ExampleHttpService,
+              private commonService: CommonService) {
   }
 
   getExamples() {
@@ -34,6 +36,6 @@ export class ExampleComponent implements OnInit {
   }
 
   sendId(id: number) {
-    this.unitId = id;
+    this.commonService.unitId = id;
   }
 }

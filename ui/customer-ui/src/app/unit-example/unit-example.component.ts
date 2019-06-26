@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import {ExampleHttpService} from '../service/http/example-http.service';
 import {Example} from '../model/example';
-import {ExampleComponent} from '../example/example.component';
+import {CommonService} from '../service/common/common.service';
 
 @Component({
   selector: 'app-unit-example',
@@ -14,15 +14,15 @@ export class UnitExampleComponent implements OnInit {
   public id: number;
 
   constructor(private exampleHttpService: ExampleHttpService,
-              private example: ExampleComponent) { }
+              private commonService: CommonService) { }
 
   getExample(id: number) {
     return this.exampleHttpService.getExamplesById(id).subscribe(data => this.unitExample = data);
 }
 
   ngOnInit() {
-     console.log(this.id = this.example.unitId);
-     this.getExample(2);
+     console.log(this.id = this.commonService.unitId);
+     this.getExample(this.commonService.unitId);
   }
 
 }
