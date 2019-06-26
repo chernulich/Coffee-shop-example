@@ -30,8 +30,7 @@ export class ExampleComponent implements OnInit {
   }
 
   ngOnInit() {
-    const x = this.getExamples();
-    alert(x);
+    this.getExamples();
   }
 
   sendId(id: number) {

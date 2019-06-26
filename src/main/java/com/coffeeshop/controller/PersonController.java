@@ -28,5 +28,11 @@ public class PersonController {
                                 .age(personDto.getAge()).build());
     }
 
+    @GetMapping("/persons/{id}")
+    public Person getPerson(@PathVariable(name = "id") Long id) {
+        System.out.println(personRepository.findById(id).orElse(null));
+        return personRepository.findById(id).orElse(null);
+    }
+
 
 }

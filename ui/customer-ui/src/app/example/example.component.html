@@ -33,7 +33,7 @@
           [class.alert-info]="tableRowsShadows[index]"
       >
         <td>
-          <li><a routerLink="/unit" (click)="sendId(example.id)">{{example.id}}</a> </li>
+          <li><a routerLink="/unit" (click)="sendId(example.id.valueOf())">{{example.id}}</a> </li>
         </td>
         <td>{{example.name}}</td>
       </tr>

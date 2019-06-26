@@ -4,15 +4,17 @@ let configuration = require('../../config/backend-config');
 
 exports.getPersonsList = function (request, response) {
 
-    rest.get(configuration.perEnvironment.backendUrl + '/persons').on('success', (backendResponseBody, backendResponseMeta) => {
+    rest.get(configuration.perEnvironment.backendUrl + '/persons')
+        .on('success', (backendResponseBody, backendResponseMeta) => {
         response.json(backendResponseBody);
     });
 };
 
-// exports.getExampleById = function (request, response) {
+// exports.getPersonById = function (request, response) {
 //     let id = request.params.id;
 //
-//     rest.get(configuration.perEnvironment.backendUrl + '/examples/' + id, (backendResponseBody, backendResponseMeta) => {
+//     rest.get(configuration.perEnvironment.backendUrl + '/examples/' + id)
+//         .on('success', (backendResponseBody, backendResponseMeta) => {
 //         response.json(backendResponseBody);
 //     });
 // };

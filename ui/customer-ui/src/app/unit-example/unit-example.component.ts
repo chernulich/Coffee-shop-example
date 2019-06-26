@@ -11,7 +11,7 @@ import {ExampleComponent} from '../example/example.component';
 export class UnitExampleComponent implements OnInit {
 
   public unitExample: Example;
-  // public id: number;
+  public id: number;
 
   constructor(private exampleHttpService: ExampleHttpService,
               private example: ExampleComponent) { }
@@ -21,8 +21,8 @@ export class UnitExampleComponent implements OnInit {
 }
 
   ngOnInit() {
-     this.getExample(1);
-     alert(this.unitExample);
+     console.log(this.id = this.example.unitId);
+     this.getExample(2);
   }
 
 }

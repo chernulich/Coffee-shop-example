@@ -31,6 +31,7 @@ public class ExampleController {
 
     @GetMapping("/examples/{id}")
     public Example getById(@PathVariable("id") Long id) {
+        System.out.println(exampleRepository.findById(id).orElse(null));
         return exampleRepository.findById(id).orElse(null);
     }
 
